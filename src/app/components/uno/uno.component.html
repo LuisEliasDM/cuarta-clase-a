@@ -1,0 +1,19 @@
+<div>
+    <form [formGroup]="formularioLogin" (submit)="onSubmit()">
+
+        <label for="name">Name: {{formularioLogin.get('name')?.errors | json}}</label><br>
+        <input showError [form]="formularioLogin" [controlName]="'name'" [anchor]="errorName" id="name" name="name" type="text" formControlName="name" #name><br>
+        <div #errorName></div>
+
+        <label for="email">Email:</label><br>
+        <input id="email" name="email" type="text" formControlName="email"><br>
+
+        <label for="password">Password</label><br>
+        <input id="password" name="password" type="text" formControlName="password"><br>
+
+        <label for="phoneNumber">Phone number: {{formularioLogin.get('phoneNumber')?.errors | json}}</label><br>
+        <input id="phoneNumber" name="phoneNumber" type="text" formControlName="phoneNumber"><br>
+
+        <button [disabled]="formularioLogin.invalid && formularioLogin.dirty" role="submit" type="submit">Save</button>
+    </form>
+</div>
